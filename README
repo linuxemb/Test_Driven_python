@@ -1,0 +1,151 @@
+Install and setup 
+====
+git link
+https://github.com/hjwp/Book-TDD-Web-Dev-Python/blob/master/tests/test_chapter_CI.py
+
+<blockquote>sudo apt instll nginx
+sudo systemctl start ngix</blockquote>
+
+install firefox geckdrive on firefox website, copy geckdrive to ~/.local/.bin
+$echo PATH=~/.local/bin:$PATH
+
+
+
+
+
+========
+----- my laptop
+8080--- jenkings  lisa  ####
+80 nginx
+
+virtualenvwrapper workon
+ 2007  mkvirtualenv --python=python3.6 superlists
+ 2008  mkvirtualenv --python=python3.8 superlists
+ 2009  workon superlists
+ 2010  virtualenvwrapper workon
+ 2011  virtualenvwrapper workon superlists
+ 2012  which python
+ 2013  deactive
+ 2014  deactivate
+ 2015  which python
+ 2016  workon
+ 2017  workon superlists
+ 2018  history
+(superlists) lshi@lshi-XPS-15-9550:~$
+file:///home/lshi/Downloads/geckodriver-v0.29.1-linux64.tar.gz
+
+
+===after setup
+sts$ tree
+.
+├── db.sqlite3
+├── manage.py
+└── superlists
+    ├── asgi.py
+    ├── __init__.py
+    ├── __pycache__
+    │   ├── __init__.cpython-38.pyc
+    │   ├── settings.cpython-38.pyc
+    │   ├── urls.cpython-38.pyc
+    │   └── wsgi.cpython-38.pyc
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+
+====== setup git===
+$git init .
+
+$echo "db.sqlite3" >> .git itnore
+$echo "geckodriver.log" >> .gitignore
+ 2024  echo "db.sqlite3" " >>.git ignore
+echo "db.sqlite3"  >>.gitignore
+ 2025  echo "db.sqlite3" >>.gitignore
+ 2026  echo "geckodriver.log" .gitignore
+
+===== setup a Django App for unittest
+$  python manage.py startapp lists
+=========
+
+Function test help you buld a pp with right funcality and guartee nver accidently break it
+Unit test help you to writh ecode what's clean and bug free
+=========
+
+
+python manage.py  startapp lists
+(superlists) lshi@lshi-XPS-15-9550:~/study/python/superlists$ ls
+db.sqlite3  lists  manage.py  superlists
+(superlists) lshi@lshi-XPS-15-9550:~/study/python/superlists$ ls lists/
+admin.py  apps.py  __init__.py  migrations  models.py  tests.py  views.py
+(superlists) lshi@lshi-XPS-15-9550:~/study/python/superlists$ tree
+.
+├── db.sqlite3
+├── lists
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── manage.py
+└── superlists
+    ├── asgi.py
+    ├── __init__.py
+    ├── __pycache__
+    │   ├── __init__.cpython-38.pyc
+    │   ├── settings.cpython-38.pyc
+    │   ├── urls.cpython-38.pyc
+    │   └── wsgi.cpython-38.pyc
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+
+========Creat app test
+
+$python mange.py
+
+=====python manage.py test
+<blockquote>Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+F
+======================================================================
+FAIL: test_bad_math (lists.tests.SMokeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/lshi/study/python/superlists/lists/tests.py", line 5, in test_bad_math
+    self.assertEqual(1+1,3)
+AssertionError: 2 != 3</blockquote>
+
+
+
+=================================================================
+ERROR: test_root_url_resolves_to_home_page_view (lists.tests.HomePageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/lshi/study/python/superlists/lists/tests.py", line 14, in test_root_url_resolves_to_home_page_view
+    found= resolve("/")
+  File "/home/lshi/.virtualenvs/superlists/lib/python3.8/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/home/lshi/.virtualenvs/superlists/lib/python3.8/site-packages/django/urls/resolvers.py", line 585, in resolve
+<b>    raise Resolver404({'tried': tried, 'path': new_path})
+<b>django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>]], 'path': ''}</b>
+
+======================================================================</b>
+FAIL: test_bad_math (lists.tests.SMokeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/lshi/study/python/superlists/lists/tests.py", line 11, in test_bad_math
+
+---- ERROR 404=====
+
+
+change urlpatterns = [
+url(r'^$',view.home_page,name='home')
+'
+===============================================
+Chapter 1, and 2
+
+ref link
+TEST driver Develpment with Python
+
